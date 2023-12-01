@@ -1,6 +1,5 @@
 import { getTotalPotential } from './buyingPotential'
-import { getCredirScoreRatio } from './creditScore'
-import { multiplyTwoNumbers } from './helper'
+import { getCredirScoreRatio, getMonthlyPayment } from './creditScore'
 
 /**
   * @param {number} amount Requested loan amount.
@@ -24,16 +23,6 @@ const countMonthlyPayments = (amount, persons) => {
     return monthlyPayment
 }
 
-const getMonthlyPayment = (amount, yearPotential, creditScoreRatio) => {
-    const potentialWithCreditScore = multiplyTwoNumbers(yearPotential, creditScoreRatio)
-
-    if (potentialWithCreditScore < amount)
-        throw new Error ('Too low Credit Score')
-
-    return potentialWithCreditScore/12
-}
-
 export {
     countMonthlyPayments,
-    getMonthlyPayment,
 }

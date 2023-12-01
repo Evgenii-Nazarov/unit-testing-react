@@ -1,9 +1,4 @@
-const getCredirScoreRatio = (creditScores) => {
-    const meanCreditScore = countMeanCreditScore(creditScores)
-
-    const creditScoreRatio = countCreditScoreRatio(meanCreditScore)
-    return creditScoreRatio
-}
+import { countTotalSum, multiplyTwoNumbers } from './helper'
 
 const countMeanCreditScore = (creditScores) => {
     const creditScoreSum = countTotalSum(creditScores)
@@ -23,8 +18,18 @@ const countCreditScoreRatio = (creditScore) => {
     else return 0.8
 }
 
-export {
+const getMonthlyPayment = (amount, yearPotential, creditScoreRatio) => {
+    const potentialWithCreditScore = multiplyTwoNumbers(yearPotential, creditScoreRatio)
+
+    if (potentialWithCreditScore < amount)
+        console.log('Too low Credit Score')
+        return null
+
+    return potentialWithCreditScore/12
+}
+
+module.exports = {
     countCreditScoreRatio,
     countMeanCreditScore,
-    getCredirScoreRatio
+    getMonthlyPayment
 }
