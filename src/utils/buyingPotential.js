@@ -1,15 +1,5 @@
-import { getIsBeneficiary } from './helper'
-
-const getPersonsStats = (personData) => {
-    const yearExpenses = countYearExpenses(personData.monthlyExpenses)
-    const freeCash = countFreeCash(personData.yearIncome, yearExpenses)
-    const ageRatio = countAgeRatio(personData.age, personData.occupation)
-    
-    return {
-        ageRatio,
-        freeCash,
-    }
-}
+import { getIsBeneficiary, multiplyTwoNumbers } from './helper'
+import { getPersonsStats } from './helper'
 
 const countYearExpenses = (monthlyExpenses) => {
     return monthlyExpenses * 12
@@ -41,9 +31,24 @@ const countAgeRatio = (age, occupation) => {
     return isBeneficiary ? ratio + 0.2 : ratio
 }
 
+/**
+  * @param {Object} personData Information about the person.
+  * @param {number} personData.age The age of the person.
+  * @param {number} personData.yearIncome The year income of the person.
+  * @param {number} personData.monthlyExpenses The monthly expenses of the person.
+  * @param {number} personData.creditScore The credit score of the person.
+  * @param {string} personData.occupation The occupation of the person.
+  */
+ const getBuyingPotential = (personData) => {
+    const { ageRatio, freeCash } = getPersonsStats(personData)
+    const buyingPotential = multiplyTwoNumbers(freeCash, ageRatio)
+
+    return buyingPotential
+}
+
 export {
     countYearExpenses,
     countFreeCash,
     countAgeRatio,
-    getPersonsStats
+    getBuyingPotential
 }

@@ -21,8 +21,10 @@ const countCreditScoreRatio = (creditScore) => {
 const getMonthlyPayment = (amount, yearPotential, creditScoreRatio) => {
     const potentialWithCreditScore = multiplyTwoNumbers(yearPotential, creditScoreRatio)
 
-    if (potentialWithCreditScore < amount)
-        throw new Error ('Too low Credit Score')
+    if (potentialWithCreditScore < amount) {
+        console.log('Hello')
+        return null
+    }
 
     return potentialWithCreditScore/12
 }

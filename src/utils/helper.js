@@ -1,3 +1,5 @@
+import { getBuyingPotential, countYearExpenses, countFreeCash, countAgeRatio } from './buyingPotential'
+
 const multiplyTwoNumbers = (num1, num2) => {
     return num1 * num2
 }
@@ -27,9 +29,21 @@ const getIsBeneficiary = (occupation) => {
     }
 }
 
+const getPersonsStats = (personData) => {
+    const yearExpenses = countYearExpenses(personData.monthlyExpenses)
+    const freeCash = countFreeCash(personData.yearIncome, yearExpenses)
+    const ageRatio = countAgeRatio(personData.age, personData.occupation)
+    
+    return {
+        ageRatio,
+        freeCash,
+    }
+}
+
 export {
     sumTwoNumbers,
     multiplyTwoNumbers,
     countTotalSum,
-    getIsBeneficiary
+    getIsBeneficiary,
+    getPersonsStats
 }
