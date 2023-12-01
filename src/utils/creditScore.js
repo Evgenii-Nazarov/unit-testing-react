@@ -22,13 +22,12 @@ const getMonthlyPayment = (amount, yearPotential, creditScoreRatio) => {
     const potentialWithCreditScore = multiplyTwoNumbers(yearPotential, creditScoreRatio)
 
     if (potentialWithCreditScore < amount)
-        console.log('Too low Credit Score')
-        return null
+        throw new Error ('Too low Credit Score')
 
     return potentialWithCreditScore/12
 }
 
-module.exports = {
+export {
     countCreditScoreRatio,
     countMeanCreditScore,
     getMonthlyPayment
