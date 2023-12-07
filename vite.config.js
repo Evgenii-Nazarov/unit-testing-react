@@ -9,7 +9,7 @@ export default defineConfig({
     globals: true,
     coverage: {
       provider: 'istanbul', // or 'v8'
-      all: true
+      all: true,
     },
   },
 })
