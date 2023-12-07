@@ -3,27 +3,24 @@ import { countTotalSum } from './helper'
 import { getBuyingPotential } from './buyingPotential'
 
 const getCredirScoreRatio = (creditScores) => {
-    const meanCreditScore = countMeanCreditScore(creditScores)
-    const creditScoreRatio = countCreditScoreRatio(meanCreditScore)
+  const meanCreditScore = countMeanCreditScore(creditScores)
+  const creditScoreRatio = countCreditScoreRatio(meanCreditScore)
 
-    return creditScoreRatio
+  return creditScoreRatio
 }
 
 /**
  * @param {Object[]} persons Array of persons.
  */
- const getTotalPotential = (persons) => {
-    const personsPotentials = persons.map(pearsonData => {
-        const buyPotential = getBuyingPotential(pearsonData)
-        return buyPotential
-    })
+const getTotalPotential = (persons) => {
+  const personsPotentials = persons.map((pearsonData) => {
+    const buyPotential = getBuyingPotential(pearsonData)
+    return buyPotential
+  })
 
-    const totalPotentials = countTotalSum(personsPotentials)
+  const totalPotentials = countTotalSum(personsPotentials)
 
-    return totalPotentials
+  return totalPotentials
 }
 
-export {
-    getCredirScoreRatio,
-    getTotalPotential,
-}
+export { getCredirScoreRatio, getTotalPotential }
