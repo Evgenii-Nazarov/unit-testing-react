@@ -5,8 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   test: {
-    include: ['**/*.spec.js'],
+    include: ['**/*.spec.js', '**/*.spec.jsx'],
     globals: true,
+    environment: 'jsdom',
     coverage: {
       provider: 'istanbul', // or 'v8'
       all: true

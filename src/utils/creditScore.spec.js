@@ -1,5 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
-import { countMeanCreditScore, getMonthlyPayment } from './creditScore'
+// import { countMeanCreditScore, getMonthlyPayment } from './creditScore'
+import * as CreditFunctions from './creditScore'
 import * as HelperFunctions from './helper'
 
 describe('countMeanCreditScore', () => {
@@ -9,7 +10,7 @@ describe('countMeanCreditScore', () => {
         // expect(spy.getMockName()).toEqual('countTotalSum')
 
         spy.mockImplementationOnce(() => { return 12 })
-        const result = countMeanCreditScore([1,2,3])
+        const result = CreditFunctions.countMeanCreditScore([1,2,3])
         expect(spy).toHaveBeenCalledTimes(1)
         expect(result).toBe(4)
     })
@@ -20,7 +21,7 @@ describe('getMonthlyPayment', () => {
         const spy = vi.spyOn(HelperFunctions, 'multiplyTwoNumbers')
 
         spy.mockImplementationOnce(() => { return 12 })
-        const result = getMonthlyPayment(1, 1200, 100)
+        const result = CreditFunctions.getMonthlyPayment(1, 1200, 100)
 
         expect(result).toBe(1)
     })
@@ -29,7 +30,7 @@ describe('getMonthlyPayment', () => {
         const spy = vi.spyOn(HelperFunctions, 'multiplyTwoNumbers')
 
         spy.mockImplementationOnce(() => { return 12 })
-        const result = getMonthlyPayment(1000, 1200, 100)
+        const result = CreditFunctions.getMonthlyPayment(1000, 1200, 100)
 
         expect(result).toBeNull()
     })
