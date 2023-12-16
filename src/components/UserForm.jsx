@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { isEmpty } from '../utils/helper'
 
-import useForm from '../hooks/useForm'
+import { useForm } from '../hooks/useForm'
 
 const initialData = {
   name: 'Bob',
@@ -11,10 +11,6 @@ const initialData = {
 
 function ApplicantForm({ addApplicant }) {
   const { formFields, updateForm, errors, isErrors } = useForm(initialData)
-
-  const handleClick = () => {
-    setCount((count) => count + 1)
-  }
 
   const submitHandler = (event) => {
     event.preventDefault()
@@ -41,10 +37,10 @@ function ApplicantForm({ addApplicant }) {
             <input
               type="text"
               name="name"
-              value={formFields.name}
+              value={formFields?.name}
               onChange={formChangeHandler}
             />
-            <div className="text-red-600">{errors.name}</div>
+            <div className="text-red-600">{errors?.name}</div>
           </div>
         </label>
         <label className="h-6 mb-6 flex">
@@ -53,10 +49,10 @@ function ApplicantForm({ addApplicant }) {
             <input
               type="number"
               name="age"
-              value={formFields.age}
+              value={formFields?.age}
               onChange={formChangeHandler}
             />
-            <div className="text-red-600">{errors.age}</div>
+            <div className="text-red-600">{errors?.age}</div>
           </div>
         </label>
         <label className="h-6 mb-6 flex">
@@ -65,10 +61,10 @@ function ApplicantForm({ addApplicant }) {
             <input
               type="number"
               name="yearIncome"
-              value={formFields.yearIncome}
+              value={formFields?.yearIncome}
               onChange={formChangeHandler}
             />
-            <div className="text-red-600">{errors.yearIncome}</div>
+            <div className="text-red-600">{errors?.yearIncome}</div>
           </div>
         </label>
         <div>

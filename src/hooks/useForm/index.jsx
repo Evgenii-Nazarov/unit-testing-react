@@ -48,4 +48,4 @@ const useForm = (initialValues = {}) => {
   }
 }
 
-export default useForm
+export { useForm }
