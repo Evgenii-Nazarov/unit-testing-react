@@ -21,7 +21,6 @@ const getMonthlyPayment = (amount, yearPotential, creditScoreRatio) => {
   )
 
   if (potentialWithCreditScore < amount) {
-    console.log('Hello')
     return null
   }
 
