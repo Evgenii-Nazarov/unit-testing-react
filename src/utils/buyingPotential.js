@@ -8,6 +8,7 @@ const countFreeCash = (income, expenses) => {
   const freeCashFlow = income - expenses
 
   if (freeCashFlow < 0) throw new Error('Negative cashflow')
+  // if (freeCashFlow < 0) return null
 
   return freeCashFlow
 }

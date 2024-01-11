@@ -29,6 +29,7 @@ const useForm = (initialValues = {}) => {
         [fieldName]: validateErrorText,
       })
     } else {
+      // Remove error from errors array
       const state = { ...errors }
       delete state[fieldName]
       setError(state)
@@ -39,11 +40,16 @@ const useForm = (initialValues = {}) => {
     setFormFields({})
   }
 
+  const setForm = (newValues) => {
+    setFormFields(newValues)
+  }
+
   return {
     formFields,
     errors,
     updateForm,
     clearForm,
+    setForm,
     isErrors: !isEmpty(errors),
   }
 }

@@ -14,17 +14,17 @@ const countCreditScoreRatio = (creditScore) => {
   else return 0.8
 }
 
-const getMonthlyPayment = (amount, yearPotential, creditScoreRatio) => {
+const getMonthlyPayment = (amount, yearPotential, creditScoreRatio, period = 360) => {
   const potentialWithCreditScore = multiplyTwoNumbers(
     yearPotential,
     creditScoreRatio,
   )
 
-  if (potentialWithCreditScore < amount) {
+  if (potentialWithCreditScore < amount/period) {
     return null
   }
 
-  return potentialWithCreditScore / 12
+  return amount/period
 }
 
 export { countCreditScoreRatio, countMeanCreditScore, getMonthlyPayment }

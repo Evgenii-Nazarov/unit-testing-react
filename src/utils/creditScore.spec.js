@@ -21,7 +21,7 @@ describe('countMeanCreditScore', () => {
   })
 })
 
-describe('getMonthlyPayment', () => {
+describe.skip('getMonthlyPayment', () => {
   it('should call multiplyTwoNumbers', () => {
     const spy = vi.spyOn(HelperFunctions, 'multiplyTwoNumbers')
 

@@ -12,9 +12,8 @@ import { getMonthlyPayment } from './creditScore'
  * @param {string} person.occupation The occupation of the person.
  */
 
-const countMonthlyPayments = (amount, persons) => {
+const countMonthlyPayments = (amount, persons, period) => {
   const totalPotentialYearly = getTotalPotential(persons)
-
   const creditScores = persons.map((person) => person.creditScore)
   const creditScoreRatio = getCredirScoreRatio(creditScores)
 
@@ -22,9 +21,10 @@ const countMonthlyPayments = (amount, persons) => {
     amount,
     totalPotentialYearly,
     creditScoreRatio,
+    period,
   )
 
-  return monthlyPayment
+  return Math.floor(monthlyPayment)
 }
 
 export { countMonthlyPayments }
