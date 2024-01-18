@@ -98,7 +98,7 @@ function ApplicantForm({ addApplicant }) {
           <div className="basis-1/3">
             <input
               type="number"
-              name="yearIncome"
+              name="monthlyExpenses"
               value={formFields?.monthlyExpenses}
               onChange={formChangeHandler}
             />
@@ -110,7 +110,7 @@ function ApplicantForm({ addApplicant }) {
           <div className="basis-1/3">
             <input
               type="number"
-              name="yearIncome"
+              name="creditScore"
               value={formFields?.creditScore}
               onChange={formChangeHandler}
             />
@@ -121,7 +121,7 @@ function ApplicantForm({ addApplicant }) {
           <div className="basis-1/3">Occupation:</div>
           <div className="basis-1/3">
             <input
-              name="yearIncome"
+              name="occupation"
               value={formFields?.occupation}
               onChange={formChangeHandler}
             />
